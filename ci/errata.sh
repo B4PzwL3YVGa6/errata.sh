@@ -41,12 +41,37 @@ errata_quiet_cmd () {
 ################################ DEPENDENCIES #################################
 
 # Our only runtime dependency is Node.js, which we install via `nvm`:
+export NVM_DIR="$HOME/.nvm"
 NVM="https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh"
 
-errata_print "Installing Node.js ..."
 errata_quiet_cmd "curl -o- $NVM | bash"
 
-export NVM_DIR="$HOME/.nvm"
 # shellcheck source=/dev/null
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 nvm install 10.11.0
+
+############################## GLOBAL VARIABLES ###############################
+
+# `DIR` is the directory holding this script.
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# [TODO]: Specify the version of `vale` and `blocktest` to use.
+#
+# See `/content/` for configuration details.
+VALE="1.0.4"
+BLOCKTEST="0.1.1"
+
+#################################### STEPS ####################################
+
+# Step 1: Prose
+#
+# In this step, we test three aspects of our documentation:
+#
+#    1. Spelling: We check our spelling via Vale using a custom;
+#    2. Style: we check that our docs adhere to our style (via Vale); and
+#    3. Code: we check that our code exmaples are working (via blocktest).
+#
+# See `/content` for more information.
+#
+# shellcheck source=ci/content/cmd.sh
+source "$DIR/content/cmd.sh"
