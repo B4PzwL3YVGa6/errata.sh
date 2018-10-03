@@ -13,7 +13,7 @@ npm install --silent ajv         # Validate our schema.
 npm install --silent prettyjson  # Nice output.
 
 errata_print "Testing front matter ..."
-node $DIR/structure/frontmatter.js $3 $FM_STYLE $FM_DELIM
+node ci/structure/frontmatter.js $3 $FM_STYLE $FM_DELIM
 
 
 # Section 2: Markup Style

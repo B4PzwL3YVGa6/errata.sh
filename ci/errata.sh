@@ -40,8 +40,6 @@ errata_quiet_cmd () {
 
 ############################## GLOBAL VARIABLES ###############################
 
-# `DIR` is the directory holding this script.
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # `NVM` is our version of `nvm` (https://github.com/creationix/nvm).
 NVM="0.33.11"
 
@@ -82,21 +80,16 @@ then
     #    3. Code: we check that our code examples are working (via blocktest).
     #
     # See `/content` for more information.
-    #
-    # shellcheck source=ci/content/cmd.sh
-    source "$DIR/content/cmd.sh"
+    source "ci/content/cmd.sh"
 
     # Step 2: Markup Style
     #
     # In this step, we ensure that our markup style is consistent and
     # readable. See `/structure` for more information.
-    #
-    # shellcheck source=ci/structure/cmd.sh
-    source "$DIR/structure/cmd.sh"
+    source "ci/structure/cmd.sh"
 else
     # Step 3: Accessibility
     #
-    # shellcheck source=ci/accessibility/cmd.sh
-    source "$DIR/accessibility/cmd.sh"
+    source "ci/accessibility/cmd.sh"
 fi
 
