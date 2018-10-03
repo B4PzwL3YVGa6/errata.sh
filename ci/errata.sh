@@ -71,25 +71,32 @@ nvm install 10.11.0
 
 #################################### STEPS ####################################
 
-# Step 1: Prose & Code
-#
-# In this step, we test three aspects of our documentation:
-#
-#    1. Spelling: We check our spelling via Vale using a custom;
-#    2. Style: we check that our docs adhere to our style (via Vale); and
-#    3. Code: we check that our code exmaples are working (via blocktest).
-#
-# See `/content` for more information.
-#
-# shellcheck source=ci/content/cmd.sh
-source "$DIR/content/cmd.sh"
+if [ "$1" == "pre" ]
+then
+    # Step 1: Prose & Code
+    #
+    # In this step, we test three aspects of our documentation:
+    #
+    #    1. Spelling: We check our spelling via Vale using a custom;
+    #    2. Style: we check that our docs adhere to our style (via Vale); and
+    #    3. Code: we check that our code examples are working (via blocktest).
+    #
+    # See `/content` for more information.
+    #
+    # shellcheck source=ci/content/cmd.sh
+    source "$DIR/content/cmd.sh"
 
-# Step 2: Markup Style
-#
-# In this step, we ensure that our markup style is consistent and
-# readable. See `/structure` for more information.
-#
-# shellcheck source=ci/structure/cmd.sh
-source "$DIR/structure/cmd.sh"
+    # Step 2: Markup Style
+    #
+    # In this step, we ensure that our markup style is consistent and
+    # readable. See `/structure` for more information.
+    #
+    # shellcheck source=ci/structure/cmd.sh
+    source "$DIR/structure/cmd.sh"
+else
+    # Step 3: Accessibility
+    #
+    # shellcheck source=ci/accessibility/cmd.sh
+    source "$DIR/accessibility/cmd.sh"
+fi
 
-# Step 3: Accessibility

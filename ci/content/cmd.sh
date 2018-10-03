@@ -7,7 +7,7 @@ bb="v${BLOCKTEST}/trust-v${BLOCKTEST}-x86_64-unknown-linux-gnu.tar.gz"
 bc=$ba$bb
 
 errata_print 'Installing & running blocktest ...'
-curl -sL $bc | tar xz && ./blocktest $1 .md $2
+curl -sL $bc | tar xz && ./blocktest $2 .md $3
 
 # Section 2: Vale (https://github.com/errata-ai/vale)
 #
@@ -21,5 +21,5 @@ vb="v${VALE}/vale_${VALE}_Linux_64-bit.tar.gz"
 vc=$va$vb
 
 errata_print 'Installing & running Vale ...'
-curl -sL $vc | tar xz && ./vale --config='ci/content/.vale.ini' $2
+curl -sL $vc | tar xz && ./vale --config='ci/content/.vale.ini' $3
 

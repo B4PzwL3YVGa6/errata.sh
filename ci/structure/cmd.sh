@@ -13,7 +13,7 @@ npm install --silent ajv         # Validate our schema.
 npm install --silent prettyjson  # Nice output.
 
 errata_print "Testing front matter ..."
-node $DIR/structure/frontmatter.js $2 $FM_STYLE $FM_DELIM
+node $DIR/structure/frontmatter.js $3 $FM_STYLE $FM_DELIM
 
 
 # Section 2: Markup Style
@@ -35,5 +35,5 @@ npm install -g remark-preset-lint-markdown-style-guide &> /dev/null
 # Ensure external links are working
 npm install -g remark-lint-no-dead-urls &> /dev/null
 
-remark --quiet --rc-path="ci/structure/.remarkrc.json" $2
+remark --quiet --rc-path="ci/structure/.remarkrc.json" $3
 

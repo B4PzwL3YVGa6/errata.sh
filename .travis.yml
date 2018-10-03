@@ -5,4 +5,4 @@ before_script:
   - shellcheck -x ci/errata.sh
 
 script:
-  - bash ci/errata.sh docs/src docs/content
+  - bash ci/errata.sh pre docs/src docs/content
