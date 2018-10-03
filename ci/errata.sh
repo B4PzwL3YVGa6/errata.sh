@@ -33,6 +33,7 @@ errata_print () {
     printf "\\n" && printf %"s\\n" "$1"
 }
 
+# Run the given command with its stdout suppressed.
 errata_quiet_cmd () {
     "$1" &> /dev/null
 }
@@ -47,7 +48,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # shellcheck source=/dev/null
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-nvm install 10.11.0
+errata_quiet_cmd "nvm install 10.11.0"
 
 ############################## GLOBAL VARIABLES ###############################
 
