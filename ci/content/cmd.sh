@@ -1,3 +1,5 @@
+set -e
+
 # Section 1: blocktest (https://github.com/errata-ai/blocktest)
 #
 # These tests ensure that all of our code examples are up-to-date and
