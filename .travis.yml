@@ -18,4 +18,4 @@ language: bash
 before_script:
   - shellcheck -x ci/errata.sh
 script:
-  - bash ci/errata.sh docs/src hugo docs/content
+  - bash ci/errata.sh docs/src docs/content
