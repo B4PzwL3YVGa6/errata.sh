@@ -1,21 +1,8 @@
 dist: trusty
 language: bash
-# addons:
-#   apt:
-#     packages:
-#       # Required to avoid SSL errors (html-proofer).
-#       #
-#       # TODO: Is this really needed?
-#       - libcurl4-openssl-dev
-# cache:
-#   # We cache our $GOPATH (used by Vale and Hugo), markdownlint, and
-#   # htmlproofer to speed up our builds.
-#   directories:
-#     - $GOPATH/src
-#     - $GOPATH/pkg
-#     - $(npm config get prefix)/bin/markdownlint
-#     - $TRAVIS_BUILD_DIR/tmp/.htmlproofer
+
 before_script:
   - shellcheck -x ci/errata.sh
+
 script:
   - bash ci/errata.sh docs/src docs/content
