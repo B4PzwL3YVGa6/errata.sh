@@ -44,7 +44,7 @@ errata_quiet_cmd () {
 NVM="https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh"
 
 errata_print "Installing Node.js ..."
-curl -o- $NVM | bash
+errata_quiet_cmd "curl -o- $NVM | bash"
 
 export NVM_DIR="$HOME/.nvm"
 # shellcheck source=/dev/null
@@ -75,7 +75,7 @@ BLOCKTEST="0.1.1"
 # See `/content` for more information.
 #
 # shellcheck source=ci/content/cmd.sh
-source "$DIR/content/cmd.sh"
+# source "$DIR/content/cmd.sh"
 
 # Step 2: Markup Style
 #
@@ -83,4 +83,4 @@ source "$DIR/content/cmd.sh"
 # readable. See `/structure` for more information.
 #
 # shellcheck source=ci/structure/cmd.sh
-source "$DIR/structure/cmd.sh"
+# source "$DIR/structure/cmd.sh"
