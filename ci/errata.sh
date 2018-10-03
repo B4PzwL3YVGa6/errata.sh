@@ -51,6 +51,12 @@ NVM="0.33.11"
 VALE="1.0.4"
 BLOCKTEST="0.1.1"
 
+# [TODO]: Specify the type of front matter you're using.
+#
+# See `/content/` for configuration details.
+FM_STYLE="TOML"  # YAML, TOML, or JSON
+FM_DELIM="+++"   # What delimiter are you using (e.g., "---")?
+
 ################################ DEPENDENCIES #################################
 
 # Our only runtime dependency is Node.js, which we install via `nvm`:
