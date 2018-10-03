@@ -10,4 +10,4 @@
 
 > NOTE:
 
-## Tests
+## Configuration
