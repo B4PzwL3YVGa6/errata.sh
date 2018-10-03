@@ -1,3 +1,4 @@
+set -e
 # Section 1: Front Matter
 #
 # The first structure test we run is for our front matter.
