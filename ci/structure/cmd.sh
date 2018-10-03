@@ -6,4 +6,5 @@
 # See the `.markdownlint.json` file for more details.
 #
 # See https://github.com/igorshubovych/markdownlint-cli.
+errata_print 'Installing & running markdownlint ...'
 npm install -g markdownlint-cli && markdownlint $3

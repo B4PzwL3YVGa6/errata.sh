@@ -26,7 +26,12 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-########################## GLOBAL VARIABLES ###########################
+################################ DEPENDENCIES #################################
+
+# Our only runtime dependency is Node.js, which we install via `nvm`:
+curl -o- https://git.io/fxIBx | bash && nvm install 10.11.0
+
+############################## GLOBAL VARIABLES ###############################
 
 # `DIR` is the directory holding this script.
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -37,14 +42,14 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 VALE="1.0.4"
 BLOCKTEST="0.1.1"
 
-########################## UTILITY FUNCTIONS ##########################
+############################## UTILITY FUNCTIONS ##############################
 
 # Print to given argument to stdout, followed by a newline.
 errata_print () {
     printf "\\n" && printf %"s\\n" "$1"
 }
 
-################################ STEPS ################################
+#################################### STEPS ####################################
 
 # Step 1: Markup Style
 #

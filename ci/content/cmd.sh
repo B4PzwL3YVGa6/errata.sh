@@ -13,9 +13,7 @@ vb="v${VALE}/vale_${VALE}_Linux_64-bit.tar.gz"
 vc=$va$vb
 
 errata_print 'Installing & running Vale ...'
-
-wget -O vale.tgz $vc > /dev/null 2>&1 && tar -zxvf vale.tgz > /dev/null 2>&1
-./vale --config='ci/content/.vale.ini' $1
+curl -sL $vc | tar xz && ./vale --config='ci/content/.vale.ini' $1
 
 # Section 2: blocktest (https://github.com/errata-ai/blocktest)
 #
@@ -26,6 +24,4 @@ bb="v${BLOCKTEST}/trust-v${BLOCKTEST}-x86_64-unknown-linux-gnu.tar.gz"
 bc=$ba$bb
 
 errata_print 'Installing & running blocktest ...'
-
-wget -O bt.tgz $bc > /dev/null 2>&1 && tar -zxvf bt.tgz > /dev/null 2>&1
-./blocktest $1 .md $3
+curl -sL $bc | tar xz && ./blocktest $1 .md $3
