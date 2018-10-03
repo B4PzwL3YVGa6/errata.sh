@@ -26,14 +26,14 @@ node $DIR/structure/frontmatter.js $2 $FM_STYLE $FM_DELIM
 # See https://github.com/igorshubovych/markdownlint-cli.
 errata_print "Installing & running remark-lint ..."
 
-errata_quiet_cmd "npm install -g remark-cli"
+npm install -g remark-cli &> /dev/null
 
 # Install plugins:
 
 # See https://github.com/cirosantilli/markdown-style-guide/
-errata_quiet_cmd "npm install -g remark-preset-lint-markdown-style-guide"
+npm install -g remark-preset-lint-markdown-style-guide &> /dev/null
 # Ensure external links are working
-errata_quiet_cmd "npm install -g remark-lint-no-dead-urls"
+npm install -g remark-lint-no-dead-urls &> /dev/null
 
-remark --rc-path="ci/structure/.remarkrc.json" $2
+remark --quiet --rc-path="ci/structure/.remarkrc.json" $2
 
