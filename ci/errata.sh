@@ -26,6 +26,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+########################## GLOBAL VARIABLES ###########################
+
 # `DIR` is the directory holding this script.
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -35,17 +37,24 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 VALE="1.0.4"
 BLOCKTEST="0.1.1"
 
-# [TODO]: Specify the format of your documentation.
-#
-# We currently support Markdown and reStructuredText.
-FORMAT="Markdown"
+########################## UTILITY FUNCTIONS ##########################
 
 # Print to given argument to stdout, followed by a newline.
 errata_print () {
     printf "\\n" && printf %"s\\n" "$1"
 }
 
-# Step 2: Content tests
+################################ STEPS ################################
+
+# Step 1: Markup Style
+#
+# In this step, we ensure that our markup style is consistent and
+# readable. See `/structure` for more information.
+#
+# shellcheck source=ci/structure/cmd.sh
+source "$DIR/structure/cmd.sh"
+
+# Step 2: Prose
 #
 # In this step, we test three aspects of our documentation:
 #
