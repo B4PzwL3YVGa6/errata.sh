@@ -26,17 +26,28 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+############################## UTILITY FUNCTIONS ##############################
+
+# Print to given argument to stdout, followed by a newline.
+errata_print () {
+    printf "\\n" && printf %"s\\n" "$1"
+}
+
+errata_quiet_cmd () {
+    "$1" &> /dev/null
+}
+
 ################################ DEPENDENCIES #################################
 
 # Our only runtime dependency is Node.js, which we install via `nvm`:
 NVM="https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh"
-curl -o- $NVM | bash
+errata_quiet_cmd "curl -o- $NVM | bash"
 
 export NVM_DIR="$HOME/.nvm"
 
 # shellcheck source=/dev/null
-[ -s "$NVM_DIR/nvm.sh" ] &> /dev/null && \. "$NVM_DIR/nvm.sh" &> /dev/null
-nvm install 10.11.0 &> /dev/null
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+nvm install 10.11.0
 
 ############################## GLOBAL VARIABLES ###############################
 
@@ -48,13 +59,6 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # See `/content/` for configuration details.
 VALE="1.0.4"
 BLOCKTEST="0.1.1"
-
-############################## UTILITY FUNCTIONS ##############################
-
-# Print to given argument to stdout, followed by a newline.
-errata_print () {
-    printf "\\n" && printf %"s\\n" "$1"
-}
 
 #################################### STEPS ####################################
 
