@@ -50,14 +50,3 @@ export NVM_DIR="$HOME/.nvm"
 # shellcheck source=/dev/null
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 nvm install 10.11.0
-
-############################## GLOBAL VARIABLES ###############################
-
-# `DIR` is the directory holding this script.
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-# [TODO]: Specify the version of `vale` and `blocktest` to use.
-#
-# See `/content/` for configuration details.
-VALE="1.0.4"
-BLOCKTEST="0.1.1"
