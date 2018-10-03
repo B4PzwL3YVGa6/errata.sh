@@ -38,28 +38,30 @@ errata_quiet_cmd () {
     "$1" &> /dev/null
 }
 
-################################ DEPENDENCIES #################################
-
-# Our only runtime dependency is Node.js, which we install via `nvm`:
-export NVM_DIR="$HOME/.nvm"
-NVM="https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh"
-
-errata_quiet_cmd "curl -o- $NVM | bash"
-
-# shellcheck source=/dev/null
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-nvm install 10.11.0
-
 ############################## GLOBAL VARIABLES ###############################
 
 # `DIR` is the directory holding this script.
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+# `NVM` is our version of `nvm` (https://github.com/creationix/nvm).
+NVM="0.33.11"
 
 # [TODO]: Specify the version of `vale` and `blocktest` to use.
 #
 # See `/content/` for configuration details.
 VALE="1.0.4"
 BLOCKTEST="0.1.1"
+
+################################ DEPENDENCIES #################################
+
+# Our only runtime dependency is Node.js, which we install via `nvm`:
+export NVM_DIR="$HOME/.nvm"
+NVM_INSTALL="https://raw.githubusercontent.com/creationix/nvm/v$NVM/install.sh"
+
+errata_quiet_cmd "curl -o- $NVM_INSTALL | bash"
+
+# shellcheck source=/dev/null
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+nvm install 10.11.0
 
 #################################### STEPS ####################################
 
