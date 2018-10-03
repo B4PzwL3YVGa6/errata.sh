@@ -71,7 +71,7 @@ nvm install 10.11.0
 
 #################################### STEPS ####################################
 
-# Step 1: Prose
+# Step 1: Prose & Code
 #
 # In this step, we test three aspects of our documentation:
 #
@@ -91,3 +91,5 @@ source "$DIR/content/cmd.sh"
 #
 # shellcheck source=ci/structure/cmd.sh
 source "$DIR/structure/cmd.sh"
+
+# Step 3: Accessibility
