@@ -8,6 +8,6 @@
 # See https://github.com/igorshubovych/markdownlint-cli.
 errata_print "Installing & running markdownlint ..."
 
-npm install -g markdownlint-cli > /dev/null 2>&1
+npm install -g markdownlint-cli &> /dev/null
 markdownlint --config="ci/structure/.markdownlint.json" $3
 
