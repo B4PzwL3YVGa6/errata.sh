@@ -29,7 +29,15 @@
 ################################ DEPENDENCIES #################################
 
 # Our only runtime dependency is Node.js, which we install via `nvm`:
-curl -o- https://git.io/fxIBx | bash && nvm install 10.11.0
+NVM="https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh"
+curl -o- $NVM | bash
+
+export NVM_DIR="$HOME/.nvm"
+
+# shellcheck source=/dev/null
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+nvm install 10.11.0  # Install Node.js
 
 ############################## GLOBAL VARIABLES ###############################
 
@@ -51,15 +59,7 @@ errata_print () {
 
 #################################### STEPS ####################################
 
-# Step 1: Markup Style
-#
-# In this step, we ensure that our markup style is consistent and
-# readable. See `/structure` for more information.
-#
-# shellcheck source=ci/structure/cmd.sh
-source "$DIR/structure/cmd.sh"
-
-# Step 2: Prose
+# Step 1: Prose
 #
 # In this step, we test three aspects of our documentation:
 #
@@ -71,3 +71,11 @@ source "$DIR/structure/cmd.sh"
 #
 # shellcheck source=ci/content/cmd.sh
 source "$DIR/content/cmd.sh"
+
+# Step 2: Markup Style
+#
+# In this step, we ensure that our markup style is consistent and
+# readable. See `/structure` for more information.
+#
+# shellcheck source=ci/structure/cmd.sh
+source "$DIR/structure/cmd.sh"
