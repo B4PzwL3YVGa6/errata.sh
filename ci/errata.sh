@@ -41,10 +41,11 @@ errata_quiet_cmd () {
 ################################ DEPENDENCIES #################################
 
 # Our only runtime dependency is Node.js, which we install via `nvm`:
-NVM="https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh"
-errata_quiet_cmd "curl -o- $NVM | bash"
-
 export NVM_DIR="$HOME/.nvm"
+NVM="https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh"
+
+errata_print "Installing Node.js ..."
+errata_quiet_cmd "curl -o- $NVM | bash"
 
 # shellcheck source=/dev/null
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
