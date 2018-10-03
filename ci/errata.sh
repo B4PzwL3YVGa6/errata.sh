@@ -29,11 +29,16 @@
 # `DIR` is the directory holding this script.
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-# Specify the version of `vale` and `blocktest` to use.
+# [TODO]: Specify the version of `vale` and `blocktest` to use.
 #
 # See `/content/` for configuration details.
 VALE="1.0.4"
 BLOCKTEST="0.1.1"
+
+# [TODO]: Specify the format of your documentation.
+#
+# We currently support Markdown and reStructuredText.
+FORMAT="Markdown"
 
 # Print to given argument to stdout, followed by a newline.
 errata_print () {
