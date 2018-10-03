@@ -75,3 +75,11 @@ BLOCKTEST="0.1.1"
 #
 # shellcheck source=ci/content/cmd.sh
 source "$DIR/content/cmd.sh"
+
+# Step 2: Markup Style
+#
+# In this step, we ensure that our markup style is consistent and
+# readable. See `/structure` for more information.
+#
+# shellcheck source=ci/structure/cmd.sh
+source "$DIR/structure/cmd.sh"
