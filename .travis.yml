@@ -5,4 +5,16 @@ before_script:
   - shellcheck -x ci/errata.sh
 
 script:
-  - bash ci/errata.sh pre docs/src docs/content
+  - echo "nop"
+  # - bash ci/errata.sh pre docs/src docs/content
+
+after_success:
+  - bash docs/build.sh
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: docs/public
+  on:
+    branch: master

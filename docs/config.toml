@@ -1,0 +1,23 @@
+baseURL = "https://errata-ai.github.io/errata.sh/"
+languageCode = "en-us"
+title = "errata.sh"
+theme = "kube"
+Paginate = 4
+
+
+[Params]
+  RSSLink = "/index.xml"
+  author = "errata.ai"
+  github = "errata-ai"
+  twitter = "erratadotai"
+  email = "support@errata.ai"
+
+
+[[menu.main]]
+    name = "GitHub"
+    weight = 100
+    url = "https://github.com/errata-ai/errata.sh"
+[[menu.main]]
+    name = "Support"
+    weight = 200
+    url = "https://github.com/errata-ai/errata.sh/issues"
