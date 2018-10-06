@@ -1,70 +1,49 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
+<html lang="en">
+	{{ partial "head" . }}
+	<body data-spy="scroll" data-target="#nav-components" data-offset="112" data-smooth-scroll-offset="112" class="bg-white">
+		{{ partial "header" . }}
+		{{ block "main" . }}{{ end }}
+    {{ partial "footer" . }}
 
-<head>
-  {{ .Hugo.Generator }}
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ block "title" . }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,400i,500" rel="stylesheet">
 
-  {{ with .Description }}
-  <meta name="description" content="{{ . }}"> {{ end }}
-  <!-- noindex meta -->
-  {{ $default_noindex_kinds := slice "section" "taxonomy" "taxonomyTerm" }}
-  {{ $noindex_kinds := .Site.Params.noindex_kinds | default $default_noindex_kinds }}
-  {{ $is_noindex_true := and (isset .Params "noindex") .Params.noindex }}
-  {{ if or (in $noindex_kinds .Kind) ($is_noindex_true) }}
-  <meta name="robots" content="noindex">
-  {{ end }}
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/popper.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.smartWizard.min.js"></script>
+    <script type="text/javascript" src="/js/flickity.pkgd.min.js"></script>
+    <script type="text/javascript" src="/js/scrollMonitor.js"></script>
+    <script type="text/javascript" src="/js/smooth-scroll.polyfills.js"></script>
+    <script type="text/javascript" src="/js/prism.js"></script>
+    <script type="text/javascript" src="/js/zoom.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/theme.min.js"></script>
+    <script type="text/javascript" src="/js/highlight.pack.js"></script>
 
-  {{ partial "meta/name-author" . }}
-  {{ template "_internal/opengraph.html" . }}
-  {{ partial "meta/ogimage" . }}
-  <!-- Site verification -->
-  {{ if .IsHome }} {{ partial "site-verification" . }} {{ end }}
-  <!-- add googleAnalytics in config.toml -->
-  {{ template "_internal/google_analytics_async.html" . }}
-  {{ if .RSSLink }}
-  <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" /> {{ end }}
+    <script src="https://unpkg.com/scrollreveal"></script>
 
-  <link rel="canonical" href="{{ .Permalink }}"> {{ if (isset .Params "prev") }}
-  <link rel="prev" href="{{ .Params.prev }}"> {{ end }} {{ if (isset .Params "next") }}
-  <link rel="next" href="{{ .Params.next }}"> {{ end }}
+    <script type="text/javascript" src="/js/demo.js"></script>
 
-  {{ partial "favicon" . }}
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
 
-  <link href="{{ "/css/font.css" | relURL }}" rel="stylesheet" type="text/css">
-  <link href="{{ "/css/kube.min.css" | relURL }}" rel="stylesheet" type="text/css">
-  <link href="{{ "/css/kube.legenda.css" | relURL }}" rel="stylesheet" type="text/css">
-  <link href="{{ "/css/highlight.css" | relURL }}" rel="stylesheet" type="text/css">
-  <link href="{{ "/css/master.css" | relURL }}" rel="stylesheet" type="text/css">
-  <link href="{{ "/css/kube.demo.css" | relURL }}" rel="stylesheet" type="text/css">
-  <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
-  <link href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" rel="stylesheet" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    {{ if isset .Params "code" }}
+      <script>hljs.initHighlightingOnLoad();</script>
+    {{ end }}
 
-  <!-- Your own theme here -->
-  <link href="{{ "/css/custom.css" | relURL }}" rel="stylesheet" type="text/css">
-  <!-- js vendor -->
-  <script src="{{ "/js/jquery-2.1.4.min.js" | relURL }}" type="text/javascript">
-  </script>
+    {{- range .Params.js }}
+      <script src="/js/{{ . }}"></script>
+    {{- end }}
 
-  <script type="text/javascript" src="{{ "/js/tocbot.min.js" | relURL }}"></script>
-</head>
-
-
-<body class="page-kube">
-  <header>{{ block "header" . }}{{ end }}</header>
-  <main>{{ block "main" . }}{{ end }}</main>
-  <footer>{{ block "footer" . }}{{ end }}</footer>
-
-
-  <script src="{{ "/js/kube.js" | relURL }}" type="text/javascript">
-  </script>
-  <script src="{{ "/js/kube.legenda.js" | relURL }}" type="text/javascript">
-  </script>
-  <script src="{{ "/js/master.js" | relURL }}" type="text/javascript">
-  </script>
-</body>
-
+    <script>
+    $(window).scroll(function () {
+        var nav = $('#main-nav');
+        var top = 100;
+        if ($(window).scrollTop() >= top) {
+          nav.addClass('scolled');
+        } else {
+          nav.removeClass('scolled');
+        }
+      });
+      </script>
+	</body>
 </html>

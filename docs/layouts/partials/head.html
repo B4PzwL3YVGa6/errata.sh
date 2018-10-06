@@ -1,0 +1,35 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{ if ne .Title .Site.Title }}{{ .Title }} - {{ end }} {{ .Site.Title }}</title>
+
+    {{ if .IsHome }}
+    <meta name="description" content="{{ .Site.Params.description }}">
+    {{ end }}
+
+    <link rel="stylesheet" href="{{ "/css/socicon.css" | relURL }}">
+    <link rel="stylesheet" href="{{ "/css/entypo.min.css" | relURL }}">
+    <link rel="stylesheet" href="{{ "/css/theme.min.css" | relURL }}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/color-brewer.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+    crossorigin="anonymous">
+
+    <link href="{{ "/css/font.css" | relURL }}" rel="stylesheet" type="text/css">
+    <!-- <link href="{{ "/css/kube.min.css" | relURL }}" rel="stylesheet" type="text/css"> -->
+    <link href="{{ "/css/kube.legenda.css" | relURL }}" rel="stylesheet" type="text/css">
+    <link href="{{ "/css/master.css" | relURL }}" rel="stylesheet" type="text/css">
+    <link href="{{ "/css/kube.demo.css" | relURL }}" rel="stylesheet" type="text/css">
+    <link href="{{ "/css/termynal.css" | relURL }}" rel="stylesheet" type="text/css">
+
+    <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+    {{- range .Params.css }}
+      <link rel="stylesheet" href="/css/{{ . }}">
+    {{- end }}
+
+    <link rel="stylesheet" href="{{ "/css/custom.css" | relURL }}">
+    <link rel="canonical" href="{{ .Permalink }}">
+</head>

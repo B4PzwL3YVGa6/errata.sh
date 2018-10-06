@@ -1,7 +1,63 @@
+/*
+/*
+/*  custom.css
+/*
+/*  If not using Gulp and Sass, add your custom CSS below then include it
+/*  in your page by adding a reference to assets/css/custom.css in the head of each page.
+/*
+*/
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    font-family: Lato, sans-serif;
+    /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+footer {
+  border-top: 1px solid #eee;
+  margin-top: 50px;
+  padding-top: 50px;
+}
+
 h1, h2, h3, h4, h5, h6 {
     color: #343a40;
 }
+h1.title, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: Lato, sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #222;
+}
+h1.title, h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: Lato, Arial, sans-serif;
+}
+.h2, h2 {
+    font-size: 36px;
+    line-height: 40px;
+}
+h1, h1.title, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: #0d0d0e;
+    text-rendering: optimizeLegibility;
+    margin-bottom: 16px;
+}
 
+code {
+    background: #e0e1e1;
+}
+code, kbd, mark, samp {
+    position: relative;
+    top: -1px;
+    padding: 4px 4px 2px;
+    display: inline-block;
+    line-height: 1;
+    color: rgba(49,52,57,.85);
+}
 
 #hero p:before {
     background: #2dce89;
@@ -9,4 +65,166 @@ h1, h2, h3, h4, h5, h6 {
 
 #hero p {
     color: #6c757d;
+}
+
+#hero {
+    padding-top: 48px;
+    padding-bottom: 48px;
+    text-align: center;
+}
+
+.entities {
+    line-height: 2
+}
+
+
+[data-entity] {
+    padding: 0.25em 0.35em;
+    margin: 0 0.25em;
+    line-height: 1;
+    display: inline-block;
+    border-radius: 0.25em;
+    border: 1px solid
+}
+
+[data-entity]:after {
+    box-sizing: border-box;
+    content: attr(title);
+    font-size: 0.7em;
+    line-height: 1;
+    padding: 0.35em 0.35em;
+    border-radius: 0.35em;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0 0.1rem 0.5rem
+}
+
+
+[data-entity][data-entity="error"] {
+    background: rgb(244,77,97,0.2);
+    border-color: #f44d61
+}
+
+[data-entity][data-entity="error"]:after {
+    background: #f44d61
+}
+
+[data-entity][data-entity="spelling"] {
+    background: rgba(166, 226, 45, 0.2);
+    border-color: #a6e22d
+}
+
+[data-entity][data-entity="spelling"]:after {
+    background: #a6e22d
+}
+
+.browser, .gist {
+    border-color: #ddd !important;
+    background-color: #fff;
+}
+
+.window {
+    margin: 0 2em auto;
+    border: 1px solid;
+    border-radius: 3px;
+    box-shadow: 0 0 0 3px rgba(0,0,0,.02);
+}
+
+.window pre, .window p {
+    padding: 10px 10px;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.browser figcaption, .gist figcaption {
+    background: #fafafa;
+    border-bottom-color: inherit !important;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+}
+
+.window figcaption {
+    display: flex;
+    letter-spacing: 1px;
+    border-bottom: 1px solid;
+    padding-right: 66px;
+    padding-left: 12px;
+}
+
+.chrome.button {
+    display: inline-block;
+    border-radius: 50%;
+    min-width: 12px;
+    height: 12px;
+    margin: 12px 6px;
+    margin-left: 0;
+}
+
+.chrome.title {
+    flex: 1;
+    text-align: center;
+    line-height: 36px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.chrome.minimize {
+    background-color: #ffbd2e;
+}
+
+.chrome.fullscreen {
+    background-color: #27c93f;
+}
+
+.chrome.close {
+    background-color: #ff5f56;
+}
+
+.text-fade {
+    color: #ced4da;
+}
+
+#col-lead {
+  padding-top: 50%;
+}
+
+.no-border {
+    border: none;
+}
+
+#editor {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.gallery {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    -webkit-column-width: 50%;
+    -moz-column-width: 50%;
+    column-width: 50%; }
+.gallery .pics {
+    -webkit-transition: all 350ms ease;
+    transition: all 350ms ease; }
+.gallery .animation {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1); }
+
+.showcase-card {
+    height: 200px;
+}
+
+.bordered {
+    border-top: 1px #e1e4e8 solid !important;
+    border-bottom: 1px #e1e4e8 solid !important;
+}
+
+.light-text {
+    color: #fff;
 }

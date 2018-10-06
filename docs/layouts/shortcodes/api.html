@@ -1,0 +1,26 @@
+{{- $folder := index .Params 0 -}}
+{{- $idx := index .Params 1 -}}
+{{- $start := index .Params 2 -}}
+{{ $end := index .Params 3 }}
+{{- $example := printf "api/%s/example.yml" $folder -}}
+{{- $keys := printf "api/%s/keys.md" $folder -}}
+<div class="accordion" id="accordion-{{ $idx }}" data-children=".accordion-item">
+  <div class="accordion-item">
+    <a data-toggle="collapse" data-parent="#accordion-{{ $idx }}" href="#accordion-panel-{{ $start }}" aria-expanded="true" aria-controls="accordion-{{ $idx }}">
+      <h5>Example Definition</h5>
+      <i class="h5 icon-chevron-small-right"></i>
+    </a>
+    <div id="accordion-panel-{{ $start }}" class="collapse show" role="tabpanel">
+      <pre class="language-yaml"><code class="yaml">{{ readFile $example }}</code></pre>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <a data-toggle="collapse" data-parent="#accordion-{{ $idx }}" href="#accordion-panel-{{ $end }}" aria-expanded="false" aria-controls="accordion-{{ $idx }}">
+      <h5>Key Summary</h5>
+      <i class="h5 icon-chevron-small-right"></i>
+    </a>
+    <div id="accordion-panel-{{ $end }}" class="collapse" role="tabpanel">
+         {{ readFile $keys | markdownify}}
+    </div>
+  </div>
+</div>

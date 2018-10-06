@@ -1,60 +1,171 @@
-{{ define "title"}} {{ .Site.Title}} {{end}}
-{{ define "header"}} {{ partial "header" .}} {{end}}
-{{ define "main"}}
-
-<div id="main">
-  <div id="hero">
-    <h2><i class="em em-zap"></i> errata.sh <i class="em em-zap"></i></h2>
-    <p align="center">
+{{ define "main" }}
+<section class="bg-white">
+   <div class="container">
+      <div id="hero" class="row justify-content-center text-center section-intro">
+         <div class="col-12 col-md-9 col-lg-8">
+            <h2><i class="em em-zap"></i> errata.sh <i class="em em-zap"></i></h2>
+            <p align="center">
       <a href="https://travis-ci.org/errata-ai/errata.sh"><img src="https://img.shields.io/travis/errata-ai/errata.sh/master.svg?style=flat-square&amp;logo=travis" alt="Build Status" /></a>
       <a href="https://github.com/errata-ai/errata.sh/releases"><img src="https://img.shields.io/github/release/errata-ai/vale.svg?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub release" /></a>
       <a href="https://github.com/errata-ai/errata.sh/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat-square&amp;logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAQBAMAAADUulMJAAAAAXNSR0IB2cksfwAAACFQTFRFAAAA////////////////////////////////////////zyHr+QAAAAt0Uk5TACDfgP/g0M9AwPBjtNY0AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAX0lEQVR4nGNggANGJQEwzexiAOGHQvgpLu5AksUlwYXNxYGBw4PBhaGlgYHTEkhPnsDQydngwjFhBsMMjgkunA2dDEtcAly4XFwZWl2B4iERIANcIOazuRRAKBcIAwwAE2YSVHVgIGMAAAAASUVORK5CYII=" alt="Bash" /></a>
       <a href="https://github.com/errata-ai/errata.sh#say-thanks"><img src="https://img.shields.io/badge/say-thanks-ff69b4.svg?style=flat-square&amp;logo=gratipay&amp;logoColor=white" alt="Donate" /></a>
     </p>
-    <p>
+           <p>
       <code>errata.sh</code> is a shell script that implements a comprehensive
       suite of documentation-related tests. It's designed to be a drop-in
       solution to your quality assurance needs.
     </p>
-  </div>
-  <div id="action-buttons">
-    <a class="button primary big" href="https://github.com/errata-ai/errata.sh/releases">Download</a> <a class="button outline big" href="https://github.com/errata-ai/errata.sh">View on GitHub</a>
-    <p>ZIP archive containing the <code>ci/</code> directory</p>
-  </div>
-  <div id="kube-features">
-    <div class="row gutters">
-      <div class="col col-4 item">
-        <figure>
-          <i class="fas fa-box fa-3x"></i>
-        </figure>
-        <h3>Self-contained</h3>
-        <p>
-          <code>errata.sh</code> only depends on <a href="https://nodejs.org/en/">Node.js</a>,
+         </div>
+         <!--end of col-->
+
+      </div>
+      <!--end of row-->
+      <ul class="row feature-list">
+         <li class="col-12 col-md-4">
+            <i class="icon-box h1"></i>
+            <h5>Self-contained</h5>
+            <p>
+              <code>errata.sh</code> only depends on <a href="https://nodejs.org/en/">Node.js</a>,
           which is installed by the script.
-        </p>
-      </div>
-      <div class="col col-4 item">
-        <figure>
-          <i class="far fa-check-circle fa-3x"></i>
-        </figure>
-        <h3>CI/CD Ready</h3>
-        <p>
-          <code>errata.sh</code> is compatible with all major CI services,
+            </p>
+         </li>
+         <!--end of col-->
+         <li class="col-12 col-md-4">
+            <i class="icon-check h1"></i>
+            <h5>CI/CD Ready</h5>
+            <p>
+              <code>errata.sh</code> is compatible with all major CI services,
           including Travis CI, CircleCI, and Jenkins.
-        </p>
-      </div>
-      <div class="col col-4 item">
-        <figure>
-          <i class="fas fa-code-branch fa-3x"></i>
-        </figure>
-        <h3>Free &amp; Open</h3>
-        <p>
-          <code>errata.sh</code> consists entirely of MIT-licensed, open-source
+            </p>
+         </li>
+         <!--end of col-->
+         <li class="col-12 col-md-4">
+            <i class="icon-users h1"></i>
+            <h5>Open Source</h5>
+            <p>
+              <code>errata.sh</code> consists entirely of MIT-licensed, open-source
           components.
-        </p>
+            </p>
+         </li>
+         <!--end of col-->
+      </ul>
+      <!--end of row-->
+   </div>
+   <!--end of container-->
+</section>
+
+<section class="bg-white">
+   <div class="container">
+      <div class="row justify-content-center text-center section-intro">
+         <div class="col-12 col-md-9 col-lg-8">
+            <span id="customization" class="title-decorative">Comprehensive Tests</span>
+         </div>
+         <!--end of col-->
       </div>
-    </div>
-</div>
-</div>
+      <!--end of row-->
+      <div class="row row-eq-height">
+         <div class="col-md-6 d-none d-md-block">
+            <figure class="gist window"><figcaption><span class="chrome button close"></span><span class="chrome button minimize"></span><span class="chrome button fullscreen"></span><span class="chrome title">example.md</span></figcaption><pre id="sec-1">---
+author.name = "errata.ai"
+categories  = [
+    "markup",
+    "quality assurance"
+]
+---</pre>
+                    <span id="sec-2" class="text-fade">
+                        <p><span id="E002" title="ERROR: capitalize headings"># linting</span></p>
+                        <p>
+                            Our open-source prose linter, <span id="E001" title="ERROR: expected 'Vale'">vale</span>, is capable of enforcing
+                            entire editorial styles guides, including heading capitalization, brand-specific terminology, and much more.
+                        </p>
+                    </span>
+                    <pre id="sec-3" class="text-fade">```go
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Printf("hello, world\n")
+}
+```</pre>
+<p id="sec-4" class="text-fade">You'll never have to worry about markup-related false positives since <span id="E003" title="spelling exception [code]">`code`</span>, URLs, and other non-prose sections are handled correctly by all of our software.</p>
+<p id="sec-5" class="text-fade">You can easily add new terms to your vocabulary file, allowing your <span id="E004" title="spelling exception [brading]">Vale</span> configuration to expand with your documentation.</p>
+
+</figure>
+         </div>
+         <div class="col-12 col-md-6">
+            <ul class="nav nav-cards" role="tablist">
+               <li>
+                  <div class="card active" data-toggle="tab" href="#content-1" role="tab" aria-controls="content-1" aria-selected="true">
+                     <div class="card-body">
+                        <div class="media align-items-center">
+                           <div class="step-circle mr-4">1</div>
+                           <div class="media-body">
+                              <h5>Markup & Front Matter</h5>
+                              <span>
+                                Ensure your markup and front matter are valid and
+                                well-structured by leveraging the <code>remark-lint</code>
+                                and <code>gray-matter</code> libraries.
+                              </span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </li>
+               <li>
+                  <div class="card" data-toggle="tab" href="#content-2" role="tab" aria-controls="content-2" aria-selected="false">
+                     <div class="card-body">
+                        <div class="media align-items-center">
+                           <div class="step-circle mr-4">2</div>
+                           <div class="media-body">
+                              <h5>Style & Spelling</h5>
+                              <span>
+                              Use <code>vale</code> to identify spelling and style mistakes
+                              according to <i>your own</i> style guide.
+                              </span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </li>
+               <li>
+                  <div class="card" data-toggle="tab" href="#content-3" role="tab" aria-controls="content-3" aria-selected="false">
+                     <div class="card-body">
+                        <div class="media align-items-center">
+                           <div class="step-circle mr-4">3</div>
+                           <div class="media-body">
+                              <h5>Code Examples</h5>
+                              <span>
+                              Manage your code snippets <i>outside</i> of your markup with <code>blocktest</code>&mdash;allowing
+                              you to maintain thorough test suites for your examples.
+                              </span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </li>
+               <li>
+               <div class="card" data-toggle="tab" href="#content-4" role="tab" aria-controls="content-4" aria-selected="false">
+                     <div class="card-body">
+                        <div class="media align-items-center">
+                           <div class="step-circle mr-4">4</div>
+                           <div class="media-body">
+                              <h5>Accessibility</h5>
+                              <span>
+                              Keep your generated HTML accessible with the <code>a11y</code>
+                              linter powered by the Chrome Accessibility Tools.
+                              </span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </li>
+            </ul>
+         </div>
+      </div>
+      <!--end of col-->
+   <!--end of row-->
+   </div>
+   <!--end of container-->
+</section>
 {{ end }}
-{{ define "footer"}} {{ partial "footer" .}} {{end}}

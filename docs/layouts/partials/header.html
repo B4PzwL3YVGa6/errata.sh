@@ -1,29 +1,31 @@
-<div class="show-sm">
-    <div id="nav-toggle-box">
-      <div id="nav-toggle-brand">
-        <a href="/">{{ .Site.Title }}</a>
-      </div><a data-component="toggleme" data-target="#top" href="#" id="nav-toggle"><i class="kube-menu"></i></a>
+<div class="nav-container">
+  <div class="bg-white navbar-light" data-sticky="top" id="main-nav">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="/">
+          <img alt="errata.ai" src="/img/logo.png" class="logo" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <i class="icon-menu h4"></i>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between navbar-right" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a href="/about/" class="nav-link">Get Started</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/errata-ai">
+                <i class="fab fa-github"></i>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+        <!--end nav collapse-->
+      </nav>
     </div>
+    <!--end of container-->
   </div>
-  <div class="hide-sm" id="top">
-    <div id="top-brand">
-      <a href="/" title="home">{{ .Site.Title }}</a>
-    </div>
-    <nav id="top-nav-main">
-      <ul>
-       {{ $currentPage := . }}
-       {{ range .Site.Menus.main }}
-    <li><a href="{{ .URL }}" {{if  $currentPage.IsMenuCurrent "main" . }} class="active"{{end}}>{{ .Name }}</a></li>
-    {{end}}
-      </ul>
-    </nav>
-    <nav id="top-nav-extra"> 
-      <ul>
-        {{ range .Site.Menus.extra }} 
-          <li>
-            <a href="{{ .Permalink }}">{{ .Name }}</a>
-          </li>
-        {{ end }}  
-      </ul>
-    </nav>
-  </div>
+</div>
+<div class="main-container"></div>

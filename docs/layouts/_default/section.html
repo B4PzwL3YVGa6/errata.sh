@@ -1,0 +1,61 @@
+{{ define "main" }}
+<nav aria-label="breadcrumb" role="navigation" class="text-white position-absolute">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">Docs</li>
+          <li class="breadcrumb-item active" aria-current="page">{{ trim .Page.Dir "/"}}</li>
+        </ol>
+      </div>
+      <!--end of col-->
+    </div>
+    <!--end of row-->
+  </div>
+  <!--end of container-->
+</nav>
+<section class="bg-{{ .Params.color }}-wall text-light p-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <div class="space-lg pb-0">
+          <h1 class="display-4">{{ .Title }}</h1>
+          <span class="lead">
+             {{ .Page.Description }}
+          </span>
+        </div>
+      </div>
+      <!--end of col-->
+    </div>
+    <!--end of row-->
+  </div>
+  <!--end of container-->
+  <svg class="decorative-divider" preserveAspectRatio="none" viewbox="0 0 100 100">
+    <polygon fill="#FFF" points="0 100 100 100 100 0"></polygon>
+  </svg>
+</section>
+<!--end of section-->
+<section class="bg-white bg-{{ .Params.color }}">
+  <div class="container">
+    <div class="row">
+
+      {{ partial "sidebar.html" . }}
+
+      <div class="col-12 col-md-8">
+
+         {{ .Content }}
+
+      </div>
+      <div class="col">
+        <nav id="nav-components" class="nav flex-md-column" data-sticky="below-nav">
+          {{ range $.Page.Params.sections }}
+            <a data-smooth-scroll href="#{{ .title | urlize }}" class="nav-link text-small">{{ .title }}</a>
+          {{ end }}
+        </nav>
+      </div>
+    </div>
+    <!--end of row-->
+  </div>
+  <!--end of container-->
+</section>
+{{ end }}

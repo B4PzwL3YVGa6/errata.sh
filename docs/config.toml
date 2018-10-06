@@ -1,23 +1,58 @@
 baseURL = "https://errata-ai.github.io/errata.sh/"
-languageCode = "en-us"
+languageCode= "en-us"
+
+contentDir = "content"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+
+disableKinds = ["taxonomy", "taxonomyTerm", "sitemap", "robotsTXT"]
+
+# Note that this currently has no effect in Hugo.
+timezone = "America/Los_Angeles"
+
+
+[params]
+
+# Default page top graphic if not set in page front matter. This is an integer representing the base filename.
+# See the JPEG files below /static/images.
+top_graphic = 5
+
+github_username = "errata-ai"
+twitter_username = "erratadotai"
+crowdfunding_url = ""
+
+# Date and time formatting, see https://gohugo.io/functions/format/
+time_format_RFC3339 = "2006-01-02T15:04:05Z07:00"
+time_format_RFC822 = "Mon, 02 Jan 2006 15:04:05 -0700"
+time_format_default = "Jan 2, 2006"
+
+# Useful when translating.
+enableMissingTranslationPlaceholders = true
+
+[languages]
+[languages.en]
 title = "errata.sh"
-theme = "kube"
-Paginate = 4
+languageName ="English"
+# Weight used for sorting.
+weight = 1
+description = """
+  errata.ai is a small consulting firm specializing in modern documentation management, with an emphasis
+  on automated testing and continuous integration.
+"""
 
+# Be explicit about the output formats. We only want an RSS feed for the home page.
+[outputs]
+home = [ "HTML", "RSS" ]
+page = [ "HTML"]
+section = [ "HTML"]
 
-[Params]
-  RSSLink = "/index.xml"
-  author = "errata.ai"
-  github = "errata-ai"
-  twitter = "erratadotai"
-  email = "support@errata.ai"
+[outputFormats]
+[outputFormats.RSS]
+baseName = "feed"
 
+# Hugo >= 0.33 is needed to get uglyURLs per section.
+[uglyURLs]
+  post = true
 
-[[menu.main]]
-    name = "GitHub"
-    weight = 100
-    url = "https://github.com/errata-ai/errata.sh"
-[[menu.main]]
-    name = "Support"
-    weight = 200
-    url = "https://github.com/errata-ai/errata.sh/issues"
+[permalinks]
+  post = "/:year/:month/:day/:slug/"

@@ -1,0 +1,25 @@
+{{- $sec := .CurrentSection.Title | singularize | lower -}}
+<div class="col-12 col-md-2 mb-5">
+  <nav class="nav flex-md-column">
+    {{ if eq $sec "prose "}}
+    <a href="https://github.com/jdkato/prose/releases" class="nav-link">
+      <img src="https://img.shields.io/github/release/jdkato/prose.svg?style=social" alt="">
+    </a>
+    {{ else }}
+    <a href="https://github.com/errata-ai/{{ $sec }}/releases" class="nav-link">
+      <img src="https://img.shields.io/github/release/errata-ai/{{ $sec }}.svg?style=social" alt="">
+    </a>
+    {{ end }}
+  </nav>
+  <hr class="short">
+  <nav class="nav flex-md-column mb-2">
+    {{ range $section, $taxonomy := .Site.Sections }}
+      {{ range sort $taxonomy.Pages ".Weight" }}
+        {{- $dir := .Dir | lower -}}
+        {{ if hasPrefix $dir $sec }}
+            <a href="{{ .Permalink }}" class="nav-link">{{ .Title }}</a>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  </nav>
+</div>
