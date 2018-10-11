@@ -40,8 +40,10 @@ errata_quiet_cmd () {
 
 ############################## GLOBAL VARIABLES ###############################
 
-# `NVM` is our version of `nvm` (https://github.com/creationix/nvm).
-NVM="0.33.11"
+# [TODO]: Specify your OS
+#
+# "Linux" or "macOS"
+OS="Linux"
 
 # [TODO]: Specify the version of `vale` and `blocktest` to use.
 #
@@ -52,8 +54,11 @@ BLOCKTEST="0.1.1"
 # [TODO]: Specify the type of front matter you're using.
 #
 # See `/content/` for configuration details.
-FM_STYLE="TOML"  # YAML, TOML, or JSON
-FM_DELIM="+++"   # What delimiter are you using (e.g., "---")?
+FM_STYLE="YAML"  # YAML, TOML, or JSON
+FM_DELIM="---"   # What delimiter are you using (e.g., "---")?
+
+# `NVM` is our version of `nvm` (https://github.com/creationix/nvm).
+NVM="0.33.11"
 
 ################################ DEPENDENCIES #################################
 

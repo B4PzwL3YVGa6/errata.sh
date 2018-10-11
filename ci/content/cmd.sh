@@ -5,7 +5,18 @@ set -e
 # These tests ensure that all of our code examples are up-to-date and
 # functional.
 ba="https://github.com/errata-ai/blocktest/releases/download/"
-bb="v${BLOCKTEST}/trust-v${BLOCKTEST}-x86_64-unknown-linux-gnu.tar.gz"
+
+if [ "${OS}" == "Linux" ]
+then
+    bb="v${BLOCKTEST}/trust-v${BLOCKTEST}-x86_64-unknown-linux-gnu.tar.gz"
+elif [ "${OS}" == "macOS" ]
+then
+    bb="v${BLOCKTEST}/trust-v${BLOCKTEST}-x86_64-apple-darwin.tar.gz"
+else
+    # FIXME: build blocktest for Windows ...
+    bb="v${BLOCKTEST}/trust-v${BLOCKTEST}-x86_64-apple-darwin.tar.gz"
+fi
+
 bc=$ba$bb
 
 errata_print 'Installing & running blocktest ...'
@@ -19,7 +30,7 @@ curl -sL $bc | tar xz && ./blocktest $2 .md $3
 
 # Install Vale using the version defined in `errata.sh`:
 va="https://github.com/errata-ai/vale/releases/download/"
-vb="v${VALE}/vale_${VALE}_Linux_64-bit.tar.gz"
+vb="v${VALE}/vale_${VALE}_${OS}_64-bit.tar.gz"
 vc=$va$vb
 
 errata_print 'Installing & running Vale ...'

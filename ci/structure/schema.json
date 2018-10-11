@@ -19,5 +19,5 @@
     "preview": {"type": "boolean"}
 
   },
-  "required": ["title", "date"]
+  "required": ["title"]
 }

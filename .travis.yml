@@ -1,14 +1,17 @@
 dist: trusty
 language: bash
+cache:
+  directories:
+    - node_modules
 
 before_script:
   - shellcheck -x ci/errata.sh
-
 script:
-  - bash ci/errata.sh pre tests/src tests/content
-
+  - bash ci/errata.sh pre docs/src docs/content
 after_success:
   - bash docs/build.sh
+before_deploy:
+  - bash ci/errata.sh post docs/public
 
 deploy:
   provider: pages

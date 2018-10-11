@@ -1,4 +1,8 @@
-# Folders
 docs/public
-tests/content
+docs/content
+
+vale
+blocktest
+
 node_modules/
+package-lock.json
