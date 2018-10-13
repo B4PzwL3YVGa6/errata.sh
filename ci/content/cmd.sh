@@ -9,17 +9,13 @@ ba="https://github.com/errata-ai/blocktest/releases/download/"
 if [ "${OS}" == "Linux" ]
 then
     bb="v${BLOCKTEST}/trust-v${BLOCKTEST}-x86_64-unknown-linux-gnu.tar.gz"
-elif [ "${OS}" == "macOS" ]
-then
-    bb="v${BLOCKTEST}/trust-v${BLOCKTEST}-x86_64-apple-darwin.tar.gz"
 else
-    # FIXME: build blocktest for Windows ...
     bb="v${BLOCKTEST}/trust-v${BLOCKTEST}-x86_64-apple-darwin.tar.gz"
 fi
 
 bc=$ba$bb
 
-errata_print 'Installing & running blocktest ...'
+errata_print 'TEST 1: Installing & running blocktest ...'
 curl -sL $bc | tar xz && ./blocktest $2 .md $3
 
 # Section 2: Vale (https://github.com/errata-ai/vale)
@@ -33,6 +29,6 @@ va="https://github.com/errata-ai/vale/releases/download/"
 vb="v${VALE}/vale_${VALE}_${OS}_64-bit.tar.gz"
 vc=$va$vb
 
-errata_print 'Installing & running Vale ...'
+errata_print 'TEST 2: Installing & running Vale ...'
 curl -sL $vc | tar xz && ./vale --config='ci/content/.vale.ini' $3
 

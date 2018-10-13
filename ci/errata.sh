@@ -26,18 +26,6 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-############################## UTILITY FUNCTIONS ##############################
-
-# Print to given argument to stdout, followed by a newline.
-errata_print () {
-    printf "\\n" && printf %"s\\n" "$1"
-}
-
-# Run the given command with its stdout suppressed.
-errata_quiet_cmd () {
-    "$1" &> /dev/null
-}
-
 ############################## GLOBAL VARIABLES ###############################
 
 # [TODO]: Specify your OS
@@ -57,22 +45,10 @@ BLOCKTEST="0.1.1"
 FM_STYLE="YAML"  # YAML, TOML, or JSON
 FM_DELIM="---"   # What delimiter are you using (e.g., "---")?
 
-# `NVM` is our version of `nvm` (https://github.com/creationix/nvm).
-NVM="0.33.11"
-
-################################ DEPENDENCIES #################################
-
-# Our only runtime dependency is Node.js, which we install via `nvm`:
-export NVM_DIR="$HOME/.nvm"
-NVM_INSTALL="https://raw.githubusercontent.com/creationix/nvm/v$NVM/install.sh"
-
-errata_quiet_cmd "curl -o- $NVM_INSTALL | bash"
-
-# shellcheck source=/dev/null
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-nvm install 10.11.0
-
 #################################### STEPS ####################################
+
+# Inlude our utility functions.
+source "ci/util.sh"
 
 if [ "$1" == "pre" ]
 then
