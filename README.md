@@ -2,8 +2,6 @@
 
 `errata.sh` is a shell script that implements a comprehensive suite of documentation-related tests. It's designed to be a drop-in solution to your quality assurance needs, including tests for your markup structure, code examples, prose, and accessibility.
 
-Learn more by [checking out our wiki](https://github.com/errata-ai/errata.sh/wiki)!
-
 <p>
       <a href="https://travis-ci.org/errata-ai/errata.sh"><img src="https://img.shields.io/travis/errata-ai/errata.sh/master.svg?style=flat-square&amp;logo=travis" alt="Build Status" /></a>
       <a href="https://github.com/errata-ai/errata.sh/releases"><img src="https://img.shields.io/github/release/errata-ai/vale.svg?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub release" /></a>
@@ -37,6 +35,25 @@ FM_DELIM="---"   # What delimiter are you using (e.g., "---")?
 ```
 
 See the [wiki](https://github.com/errata-ai/errata.sh/wiki) for detailed explanations of each test.
+
+## Tests
+
+### Step 1: [`blocktest`](https://github.com/errata-ai/blocktest) [code examples]
+
+### Step 2: [`vale`](https://github.com/errata-ai/vale) [spelling, writing style]
+
+```text
+ci/
+├── content/
+    ├── .vale.ini
+    └── vocab.txt
+```
+
+### Step 3: [`gray-matter`](https://github.com/jonschlinkert/gray-matter) [front matter]
+
+### Step 4: [`remark-lint`](https://github.com/remarkjs/remark-lint) [markup style]
+
+### Step 5: [`a11y`](https://github.com/addyosmani/a11y) [accessibility]
 
 ## Say thanks
 
