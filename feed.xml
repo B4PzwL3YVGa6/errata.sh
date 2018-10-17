@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>errata.sh</title>
+    <description>  errata.ai is a small consulting firm specializing in modern documentation management, with an emphasis
+  on automated testing and continuous integration.
+</description>
+    <link>https://errata-ai.github.io/errata.sh/</link>
+     
+         <atom:link href="https://errata-ai.github.io/errata.sh/feed.xml" rel="self" type="application/rss+xml" />
+    
+    <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+    <lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo v0.49</generator>
+    
+    
+  </channel>
+</rss>
